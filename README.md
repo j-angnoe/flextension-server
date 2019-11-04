@@ -67,8 +67,8 @@ Now create a firefox extension:
 
 ```js << extension/src/background.js >>
 
-var port = '55032'; // enter port number here.
-var token = '55efce79f2e8de590ca5292ad9270923a30209bced619692bc311822bdda9976c77a70624b1835e745477542d86798a8'; // enter token here
+var port = '...'; // enter port number here.
+var token = '...'; // enter token here
 
 console.log("Background script running");
 
