@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+
+async function main() {
+
+    var path = require('path');
+    var settings;
+    var crypto = require('crypto');
+    var FLEXTENSIONRC = path.join(process.env.HOME, '.flextensionrc');
+
+    try { 
+        var fs = require('fs');
+        settings = JSON.parse(fs.readFileSync(FLEXTENSIONRC));
+    } catch (err) {
+        console.error(err);
+        // file can be non-existing.
+        settings = settings || {};
+    }
+    settings.port = settings.port || 55000 + Math.ceil(Math.random() * 999);
+    settings.token = settings.token || await new Promise((resolve,reject) => {
+        crypto.randomBytes(48, function(err, buffer) {
+            if (err) {
+                return reject(err);
+            }
+            resolve(buffer.toString('hex'));
+          });
+    });    
+
+    fs.writeFileSync(path.join(FLEXTENSIONRC), JSON.stringify(settings, null, 3));
+
+    console.log('Read settings', settings);
+    
+    require('../server.js')(settings);    
+}
+
+
+main();
