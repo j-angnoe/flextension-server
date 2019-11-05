@@ -9,7 +9,7 @@ and writing files and executing shell commands.
 
 Some useful examples of browser extensions that require these super-powers:
 
-- A Localhost Developer Compagnon:
+- [A Localhost Manager extension](https://github.com/j-angnoe/localhost-manager-browser-extension):  
 Tired of being unable to connect to your project because you've forgotten to start it first. No more. Next time you visit a project on localhost you may be prompted to provide a directory and a start command. No more switching between browser and terminal. (Assuming you have the flextenion server running ;-))
 
 - Bookmark to your pc instead of the cloud:
